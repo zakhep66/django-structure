@@ -1,0 +1,5 @@
+docker_compose/
+*.pyc
+.idea
+.venv
+poetry.lock

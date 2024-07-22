@@ -1,0 +1,7 @@
+.venv
+.env
+.idea
+*.pyc
+core/project/settings/local.py
+docker_compose/postgres_data
+poetry.lock
