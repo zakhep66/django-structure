@@ -6,6 +6,7 @@ DB_CONTAINER = django_postgres
 LOGS = docker logs
 ENV = --env-file .env
 APP_CONTAINER = django_app
+MANAGE_PY = python manage.py
 
 .PHONY: storages
 storages:
@@ -34,8 +35,20 @@ app-logs:
 
 .PHONY: app-down
 app-down:
-	${DC} -f ${APP_FILE} -f ${STORAGES_FILE} down
+	${DC} -f ${APP_FILE} -f ${STORAGES_FILE} ${ENV} down
 
 .PHONY: migrate
 migrate:
-	${EXEC} ${APP_CONTAINER} python manage.py migrate
+	${EXEC} ${APP_CONTAINER} ${MANAGE_PY} migrate
+
+.PHONY: migrations
+migrations:
+	${EXEC} ${APP_CONTAINER} ${MANAGE_PY} makemigrations
+
+.PHONY: superuser
+superuser:
+	${EXEC} ${APP_CONTAINER} ${MANAGE_PY} createsuperuser
+
+.PHONY: collectstatic
+collectstatic:
+	${EXEC} ${APP_CONTAINER} ${MANAGE_PY} collectstatic

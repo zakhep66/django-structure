@@ -4,4 +4,5 @@
 *.pyc
 core/project/settings/local.py
 docker_compose/postgres_data
-poetry.lock
+static/*
+!static/.gitkeep
