@@ -8,8 +8,7 @@ services:
         container_name: django_app
         ports:
             - "${DJANGO_PORT}:8000"
-        command:
-          - "sh /entrypoint.sh"
+        command: ["sh", "/app/entrypoint.sh"]
         env_file:
             - ../.env
         depends_on:

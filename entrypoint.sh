@@ -22,6 +22,6 @@ wait_for_pool() {
   done
 }
 
-wait_for_pool "$POSTGRES_HOST" "$POSTGRES_PORT"
+wait_for_pool "postgres" "$POSTGRES_PORT"
 
-python manage.py runserver "$DJANGO_HOST" "$DJANGO_PORT"
+python manage.py runserver "0.0.0.0:$DJANGO_PORT"
