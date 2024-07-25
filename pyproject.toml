@@ -11,6 +11,7 @@ python = "^3.12"
 
 [tool.poetry.group.web.dependencies]
 django = "^5.0.7"
+django-ninja = "^1.2.2"
 
 
 [tool.poetry.group.env.dependencies]

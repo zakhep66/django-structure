@@ -17,4 +17,4 @@ RUN pip install --upgrade pip && \
 
 COPY . /app
 
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
