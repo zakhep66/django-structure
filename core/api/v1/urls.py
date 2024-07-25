@@ -1,18 +1,7 @@
-from django.urls import path
-from django.http import HttpRequest
+from ninja import Router
 
-from ninja import NinjaAPI
-
-from core.api.v1.schemas import PingResponseSchema
-
-api = NinjaAPI()
+from core.api.v1.products.handlers import router as products_router
 
 
-@api.get("/ping", response=PingResponseSchema)
-def ping(request: HttpRequest) -> PingResponseSchema:
-    return PingResponseSchema(result="pong")
-
-
-urlpatterns = [
-    path("", api.urls),
-]
+router = Router(tags=["v1"])
+router.add_router("/products", products_router)
