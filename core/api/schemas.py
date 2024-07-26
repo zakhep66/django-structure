@@ -2,6 +2,7 @@ from typing import Any, Generic, TypeVar
 
 from ninja import Schema, Field
 
+from core.api.filters import PaginationOut
 
 TData = TypeVar("TData")
 TListItem = TypeVar("TListItem")
@@ -9,12 +10,6 @@ TListItem = TypeVar("TListItem")
 
 class PingResponseSchema(Schema):
     result: str
-
-
-class PaginationOut(Schema):
-    offset: int
-    limit: int
-    total: int
 
 
 class ListPaginatedResponse(Schema, Generic[TListItem]):
