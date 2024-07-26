@@ -22,7 +22,11 @@ def get_product_list_handler(
     product_list = service.get_product_list(filters=filters, pagination_in=pagination_in)
     product_count = service.get_product_count(filters=filters, pagination_in=pagination_in)
     items = [ProductSchema.from_entity(obj) for obj in product_list]
-    pagination_out = PaginationOut(offset=0, limit=10, total=product_count)
+    pagination_out = PaginationOut(
+        offset=pagination_in.offset,
+        limit=pagination_in.limit,
+        total=product_count
+    )
 
     return ApiResponse(
         data=ListPaginatedResponse(
