@@ -70,7 +70,7 @@ DATABASES = {
         'PASSWORD': env('POSTGRES_PASSWORD', default='postgres'),
         'HOST': env('POSTGRES_HOST', default='127.0.0.1'),
         'PORT': env('POSTGRES_PORT', default='5432'),
-    }
+    },
 }
 
 

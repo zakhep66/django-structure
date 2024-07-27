@@ -1,8 +1,16 @@
-from typing import Any, Generic, TypeVar
+from typing import (
+    Any,
+    Generic,
+    TypeVar,
+)
 
-from ninja import Schema, Field
+from ninja import (
+    Field,
+    Schema,
+)
 
 from core.api.filters import PaginationOut
+
 
 TData = TypeVar("TData")
 TListItem = TypeVar("TListItem")

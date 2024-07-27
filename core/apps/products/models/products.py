@@ -11,10 +11,10 @@ class Product(TimedBaseModel):
     )
     description = models.TextField(
         blank=True,
-        verbose_name="Описание"
+        verbose_name="Описание",
     )
     price = models.FloatField(
-        verbose_name="Цена"
+        verbose_name="Цена",
     )
     is_visible = models.BooleanField(
         default=True,
