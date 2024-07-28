@@ -24,8 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # first party
-    'core.apps.common',
-    'core.apps.products',
+    'core.apps.products.apps.ProductsConfig',
+    'core.apps.customers.apps.CustomersConfig',
 
     # third party
 
