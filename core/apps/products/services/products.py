@@ -42,7 +42,9 @@ class ORMProductsService(BaseProductsService):
         query = self._build_product_query(filters)
 
         qs = await sync_to_async(
-            ProductDTO.objects.filter(query)[pagination_in.offset:pagination_in.offset + pagination_in.limit],
+            lambda: list(
+                ProductDTO.objects.filter(query)[pagination_in.offset:pagination_in.offset + pagination_in.limit],
+            ),
             thread_sensitive=True,
         )()
 
