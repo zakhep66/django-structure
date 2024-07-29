@@ -26,3 +26,9 @@ class ProductSchema(BaseModel):
 
 
 ProductListSchema = list[ProductSchema]
+
+
+class ProductInSchema(BaseModel):
+    title: str
+    description: str
+    price: float
